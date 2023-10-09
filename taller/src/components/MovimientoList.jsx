@@ -2,7 +2,7 @@
 import '../App.css';
 import MovimientoItem from './MovimientoItem';
 
-const MovimientoList = ({ movimientos, setMovimientos }) => {
+const MovimientoList = ({ movimientos, setMovimientos, setEdit }) => {
 
     const deleteMovimiento = ({id}) => {
         const newMovimiento = movimientos.filter((item) => item.id !== id);
@@ -17,6 +17,7 @@ const MovimientoList = ({ movimientos, setMovimientos }) => {
                         key={movimiento.id}
                         movimiento={movimiento}
                         deleteMovimiento={deleteMovimiento}
+                        setEdit={setEdit}
                     />
                 ))
             }

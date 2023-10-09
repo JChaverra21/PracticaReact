@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { ListItem } from '@mui/material';
 import '../App.css';
-import {BsFillTrashFill,BsFillPencilFill} from "react-icons/bs"
+import {AiFillDelete,AiFillEdit} from "react-icons/ai"
 
-const MovimientoItem = ({ movimiento, deleteMovimiento }) => {
+const MovimientoItem = ({ movimiento, deleteMovimiento, setEdit }) => {
     return (
         <ListItem className='list'>
             <div className='listItem'>
@@ -11,7 +11,8 @@ const MovimientoItem = ({ movimiento, deleteMovimiento }) => {
                 {movimiento.cantidad}
             </div>
             <div>
-                <button onClick={() => deleteMovimiento(movimiento)}><BsFillTrashFill color="#12343b" size={20}></BsFillTrashFill></button>
+                <button onClick={() => deleteMovimiento(movimiento)}><AiFillDelete color="#12343b" size={20}></AiFillDelete></button>
+                <button onClick={() => setEdit(movimiento)}><AiFillEdit color="#12343b" size={20}></AiFillEdit></button>
             </div>
         </ListItem>
     )

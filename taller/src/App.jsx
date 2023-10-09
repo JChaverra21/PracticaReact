@@ -58,12 +58,15 @@ const App = () => {
             <Form
               movimientos={movimientos}
               setMovimientos={setMovimientos}
+              edit={edit}
+              setEdit={setEdit}
             />
           </div>
           <div className='formContainer'>
             <MovimientoList
               movimientos={movimientos}
               setMovimientos={setMovimientos}
+              setEdit={setEdit}
             />
           </div>
         </div>

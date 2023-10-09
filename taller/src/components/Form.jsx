@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import '../App.css';
-import { Button, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { Button, FormControl, InputAdornment, InputLabel, MenuItem, OutlinedInput, Select, TextField } from '@mui/material';
 import uuid4 from 'uuid4';
 
-const Form = ({ movimientos, setMovimientos }) => {
+const Form = ({ movimientos, setMovimientos, edit, setEdit }) => {
 
   const [values, setValues] = useState({
     tipo: "gasto",
     name: "",
-    cantidad: 0
+    cantidad: ""
   })
 
   const handlerSubmit = (e) => {
@@ -23,26 +23,37 @@ const Form = ({ movimientos, setMovimientos }) => {
     setValues({
       tipo: "gasto",
       name: "",
-      cantidad: 0
+      cantidad: ""
     });
+  }
+
+  const editMovimiento = (movimiento) => {
+    const newMovimiento = movimientos.map((item) =>
+      item.id === movimiento.id ? {...movimiento, name: movimiento.name, cantidad: movimiento.cantidad} : item
+    );
+    setMovimientos(newMovimiento);
+    setEdit(null);
   }
 
   return (
     <div>
       <form onSubmit={handlerSubmit}>
         <div className='formGroup'>
-          <InputLabel id="tipo-label">Tipo Movimiento:</InputLabel>
-          <Select
-            labelId="tipo-label"
-            id="tipo"
-            color='warning'
-            required
-            value={values.tipo}
-            onChange={(e) => setValues({ ...values, tipo: e.target.value })}
-          >
-            <MenuItem value="gasto">Gasto</MenuItem>
-            <MenuItem value="ingreso">Ingreso</MenuItem>
-          </Select>
+          <FormControl>
+            <InputLabel id="tipo-label" color='warning'>Tipo Movimiento:</InputLabel>
+            <Select
+              labelId="tipo-label"
+              id="tipo"
+              color='warning'
+              label='tipo'
+              required
+              value={values.tipo}
+              onChange={(e) => setValues({ ...values, tipo: e.target.value })}
+            >
+              <MenuItem value="gasto">Gasto</MenuItem>
+              <MenuItem value="ingreso">Ingreso</MenuItem>
+            </Select>
+          </FormControl>
         </div>
         <div className='formGroup'>
           {/* <label htmlFor="name">Nombre:</label> */}
@@ -58,7 +69,7 @@ const Form = ({ movimientos, setMovimientos }) => {
               },
             }}
             value={values.name}
-            onChange={(e) => setValues({...values, name: e.target.value})}
+            onChange={(e) => setValues({ ...values, name: e.target.value })}
           />
         </div>
         <div className='formGroup'>
@@ -73,9 +84,15 @@ const Form = ({ movimientos, setMovimientos }) => {
               style: {
                 color: 'white', // Cambia el color del texto aquí
               },
+              startAdornment: (
+                <InputAdornment position="start">
+                  $
+                </InputAdornment>
+              ),
             }}
+
             value={values.cantidad}
-            onChange={(e) => setValues({...values, cantidad: e.target.value})}
+            onChange={(e) => setValues({ ...values, cantidad: e.target.value })}
           />
         </div>
         <Button type='submit' variant="contained">
