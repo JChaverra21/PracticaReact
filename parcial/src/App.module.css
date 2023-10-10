@@ -1,0 +1,38 @@
+.container {
+    background: #d5a675;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .appwrapper {
+    background-color: #12343b;
+    min-width: 450px;
+    min-height: 650px;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 3px 6px 40px #000;
+    margin-bottom: 10px;
+  }
+
+  .header {
+    background: #d5a675;
+    display: flex;
+    justify-content: center;
+    gap: 450px;
+    align-items: center;
+  }
+
+  .containerinputs{
+    display: flex;
+    gap: 20px;
+  }
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }

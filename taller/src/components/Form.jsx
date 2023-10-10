@@ -48,6 +48,7 @@ const Form = ({ movimientos, setMovimientos, edit, setEdit }) => {
               label='tipo'
               required
               value={values.tipo}
+              sx={{width:"250px"}}
               onChange={(e) => setValues({ ...values, tipo: e.target.value })}
             >
               <MenuItem value="gasto">Gasto</MenuItem>
@@ -63,6 +64,7 @@ const Form = ({ movimientos, setMovimientos, edit, setEdit }) => {
             color="warning"
             focused
             required
+            sx={{width:"250px"}}
             InputProps={{
               style: {
                 color: 'white', // Cambia el color del texto aquí
@@ -80,6 +82,7 @@ const Form = ({ movimientos, setMovimientos, edit, setEdit }) => {
             color="warning"
             focused
             required
+            sx={{width:"250px"}}
             InputProps={{
               style: {
                 color: 'white', // Cambia el color del texto aquí

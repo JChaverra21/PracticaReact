@@ -1,0 +1,76 @@
+/* .taskInput {
+    outline: none;
+    width: 260px;
+    padding: 15px;
+    margin-right: 25px;
+    font-size: 20px;
+    color: burlywood;
+    background-color: black;
+    border-radius: 10px;
+    border: 1px solid burlywood;
+}
+
+.button {
+    width: 70px;
+    padding: 15px 15px;
+    font-size: 20px;
+    border: 0;
+    color: burlywood;
+    background-color: black;
+    border-radius: 10px;
+} */
+
+/* form.module.css */
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.taskInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    color: burlywood;
+    background-color: black;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    outline: none;
+}
+
+.selectInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    color: burlywood;
+    background-color: black;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    outline: none;
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    font-size: 20px;
+    color: burlywood;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin: auto;
+}
+
+.button:hover {
+    background-color: #333;
+    /* Cambiar el color al pasar el mouse */
+}
