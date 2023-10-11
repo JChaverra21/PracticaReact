@@ -40,3 +40,21 @@ p {
     margin: 0;
     padding: 0;
 }
+
+.search {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: aliceblue;
+}
+
+.taskInput {
+    width: 40%;
+    padding: 10px;
+    font-size: 18px;
+    color: burlywood;
+    background-color: black;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    outline: none;
+}

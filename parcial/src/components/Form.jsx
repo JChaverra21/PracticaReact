@@ -20,9 +20,7 @@ const Form = ({ saldoInicial, setSaldoInicial, saldoFinal, setSaldoFinal, todos,
     if (edit) {
       editTodo(edit);
     } else {
-      console.log(typeof saldoFinal);
-      console.log(typeof saldoInicial);
-      console.log(values);
+
       if (values.tipo === "gasto") {
         if ((saldoFinal - Number(values.cantidad)) >= 0) {
           setSaldoFinal(saldoFinal - Number(values.cantidad));
@@ -41,7 +39,7 @@ const Form = ({ saldoInicial, setSaldoInicial, saldoFinal, setSaldoFinal, todos,
       else {
         setSaldoFinal(saldoFinal + Number(values.cantidad));
       }
-      console.log("llegamos a covenas");
+
       const newTodo = {
         id: uuid4(),
         ...values
@@ -65,7 +63,14 @@ const Form = ({ saldoInicial, setSaldoInicial, saldoFinal, setSaldoFinal, todos,
   };
 
   const editTodo = (todo) => {
-    const newTodos = todos.map((item) => item.id === todo.id ? { ...todo, name: values.name, cantidad: values.cantidad } : item);
+    const newTodos = todos.map((item) => {
+      
+      const saldoAnterior = item.cantidad
+      setSaldoFinal((saldoFinal - saldoAnterior) + Number(values.cantidad))
+
+      return item.id === todo.id ? { ...todo, name: values.name, cantidad: values.cantidad } : item
+      
+    });
     setTodos(newTodos);
     setEdit(null);
   }

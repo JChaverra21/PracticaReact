@@ -4,7 +4,6 @@ import Form from "./components/Form"
 import Header from "./components/Header"
 import { useState } from "react"
 import TodoList from "./components/TodoList"
-import { useEffect } from "react"
 
 const App = () => {
 
@@ -12,6 +11,9 @@ const App = () => {
   const [saldoInicial, setSaldoInicial] = useState(0);
   const [saldoFinal, setSaldoFinal] = useState(saldoInicial);
   const [edit, setEdit] = useState(null);
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterType, setFilterType] = useState("all");
 
   /*   const calcularSaldoFinal = todos.reduce((total, movimiento) => {
       if (movimiento.tipo === "ingreso") {
@@ -91,10 +93,16 @@ const App = () => {
         </div>
         <div>
           <div className={style.appwrapper}>
+            <h1>Movimientos</h1>
+
             <TodoList
               todos={todos}
               setTodos={setTodos}
               setEdit={setEdit}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              filterType={filterType}
+              setFilterType={setFilterType}
             />
           </div>
         </div>
